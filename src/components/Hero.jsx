@@ -15,13 +15,7 @@ export default function Hero() {
           </h1>
           <div className="role">{profile.role}</div>
           <p className="pitch">{profile.pitch}</p>
-          <div className="loc">
-            <svg viewBox="0 0 24 24" fill="none" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            {/* {profile.location} — {profile.availability} */}
-          </div>
+          
           <div className="cta-row">
             <Magnetic className="btn btn-primary" href={profile.cvFile} download>
               Télécharger mon CV ↓
