@@ -100,7 +100,7 @@ export const certifications = [
   { name: 'Oracle Cloud Infrastructure 2025 — Certified Foundations Associate', status: 'done' },
   { name: 'Apache Kafka Foundations (Confluent)', status: 'done' },
   { name: 'Udemy — Generative AI Fundamentals', status: 'done' },
-  { name: 'Oracle Certified Professional — OCI Foundations Associate', status: 'wip' },
+  { name: 'Oracle Certified Professional — Java SE 17 Developer', status: 'wip' },
   { name: 'Injaz Al-Maghrib — Entrepreneuriat (2025)', status: 'done' },
 ]
 
