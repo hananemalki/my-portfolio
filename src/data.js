@@ -87,7 +87,7 @@ export const methods = ['Scrum', 'Agile', 'SAFe', 'Jira', 'Confluence']
 
 export const education = [
   {
-    title: 'Master Qualité du Logiciel',
+    title: 'Master Spécialisé Qualité du Logiciel',
     meta: 'Faculté des Sciences Dhar El Mehraz — USMBA Fès · 2024–2026',
   },
   {
