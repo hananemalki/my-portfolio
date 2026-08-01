@@ -12,7 +12,7 @@ export default function Contact() {
               Prochaine étape
             </div>
             <h2>
-              Disponible pour un poste d'ingénieure logiciel / IA — discutons de votre projet.
+              Disponible pour un poste de développeuse Java / IA générative — discutons de votre projet.
             </h2>
             <p>
               Je suis actuellement en stage de fin d'études chez Capgemini jusqu'en août 2026, et ouverte aux échanges pour la suite. N'hésitez pas à me contacter directement.

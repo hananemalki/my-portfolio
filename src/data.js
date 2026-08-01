@@ -2,11 +2,11 @@ import cvFile from './cv hanane malki.pdf'
 
 export const profile = {
   name: 'Malki Hanane',
-  role: 'Ingénieure Logiciel — IA Générative & Qualité Logicielle',
+  role: 'Développeuse Java — IA Générative & Qualité Logicielle',
   pitch:
-    "Ingénieure Logiciel diplômée, avec une solide expertise en développement d'applications, qualité logicielle et IA générative. Passionnée par la conception de solutions robustes, scalables et de haute qualité.",
+    "Développeuse Java, spécialisée en IA générative et qualité logicielle. Solide expertise en développement d'applications back-end et en conception de solutions robustes, scalables et de haute qualité.",
   location: 'Casablanca, Maroc',
-  availability: "disponible pour un poste d'ingénieure logiciel / IA",
+  availability: 'disponible pour un poste de développeuse Java / IA générative',
   email: 'hanane.malki003@gmail.com',
   phone: '+212690022136',
   phoneDisplay: '+212 690022136',
@@ -14,7 +14,6 @@ export const profile = {
   github: 'https://github.com/hananemalki',
   cvFile: cvFile,
 }
-
 export const quickFacts = [
   { num: '3', label: 'stages en développement & IA' },
   { num: '4', label: 'certifications obtenues' },

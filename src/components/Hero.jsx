@@ -9,8 +9,7 @@ export default function Hero() {
       <div className="hero-watermark" aria-hidden="true">{'</>'}</div>
       <div className="wrap">
         <Reveal>
-          <div className="hero-kicker">{'<engineer role='}<span>"IA générative"</span>{'>'}</div>
-          <h1>
+          <div className="hero-kicker">{'<developer specialty='}<span>"Java & IA Générative"</span>{'>'}</div>          <h1>
             Malki <span className="accent">Hanane</span>
           </h1>
           <div className="role">{profile.role}</div>

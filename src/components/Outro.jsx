@@ -5,12 +5,12 @@ export default function Outro() {
     <section className="outro">
       <div className="wrap">
         <Reveal>
-          <div className="outro-tag">{'{ '}rôle actuel{' }'}</div>
+          <div className="outro-tag">{'{ '}spécialité{' }'}</div>
           <h2 className="outro-title">
-            Ingénieure<br />Logiciel<span className="outro-dot">.</span>
+            Java<br />& IA Générative<span className="outro-dot">.</span>
           </h2>
           <p className="outro-sub">
-            IA générative, qualité logicielle, et tout ce qu'il faut entre les deux pour que ça tienne en production.
+            Qualité logicielle à chaque étape — pour que ça tienne en production, pas seulement en démo.
           </p>
         </Reveal>
       </div>
