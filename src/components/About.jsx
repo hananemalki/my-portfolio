@@ -8,18 +8,22 @@ export default function About() {
   return (
     <section id="about" className="about">
       <div className="wrap">
-        <Reveal>
+       <Reveal>
           <div className="eyebrow">À propos</div>
+
           <p className="about-lead">
-            Je conçois des logiciels fiables à l'intersection de deux disciplines :{' '}
-            <span className="hl hl-primary">l'IA générative appliquée</span> et{' '}
-            <span className="hl hl-teal">l'ingénierie de la qualité</span>.
+            Développeuse <span className="hl hl-primary">
+              Java Full Stack
+            </span>, je conçois des applications web
+            de bout en bout, du backend aux interfaces utilisateurs.
           </p>
+
           <p className="about-body">
-            Mon travail actuel porte sur l'architecture Advanced RAG pour rendre la documentation
-            technique interne réellement interrogeable. Formée entre Fès et Meknès, je m'appuie sur
-            des bases solides en Java/Spring et en tests logiciels pour livrer des systèmes qui
-            tiennent la route en production, pas seulement en démo.
+            Je travaille principalement avec Java, Spring Boot, Angular
+            et React pour développer des applications robustes et évolutives.
+            Mon expérience m’a également permis de travailler sur les API REST,
+            les architectures logicielles, les bases de données, le DevOps
+            et l’intégration de solutions d’IA générative.
           </p>
         </Reveal>
 
