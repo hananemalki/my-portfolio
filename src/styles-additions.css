@@ -1,0 +1,164 @@
+/* ============================================================
+   THÈME CLAIR — palette d'accent VIVE (pas de noir)
+   Même logique que le thème sombre, mais des teintes plus
+   foncées/saturées pour garder un bon contraste sur fond clair.
+   ============================================================ */
+:root[data-theme="light"]{
+  --bg:#f5f7fb;
+  --bg-elev:#ffffff;
+  --surface:#ffffff;
+  --surface-2:#eef1f8;
+  --line:#dde2ee;
+  --line-soft:#e7eaf3;
+
+  --ink:#12151f;
+  --ink-dim:#3d4560;
+  --muted:#6b7488;
+
+  /* --- Accent : toujours du bleu vif, mais calibré pour du blanc --- */
+  --primary:#1f6feb;
+  --primary-bright:#0a58ca;   /* remplace le bleu pâle illisible sur blanc */
+  --primary-deep:#0b3d91;
+  --primary-08:rgba(31,111,235,0.08);
+  --primary-14:rgba(31,111,235,0.14);
+  --primary-30:rgba(31,111,235,0.30);
+
+  /* teal utilisé dans le dégradé du hero */
+  --teal-vivid:#0e9488;
+
+  /* signal / warn : mêmes teintes mais foncées pour rester lisibles en texte */
+  --signal:#0f8a5f;
+  --warn:#b45309;
+}
+
+:root[data-theme="light"] body::before{
+  opacity:.5;
+}
+
+:root[data-theme="light"] .hero-watermark{
+  -webkit-text-stroke-color:rgba(31,111,235,0.12);
+}
+
+:root[data-theme="light"] header{
+  background:rgba(255,255,255,0.82);
+}
+
+:root[data-theme="light"] .btn-ghost{
+  background:rgba(10,20,40,0.03);
+}
+
+:root[data-theme="light"] .tech-badge,
+:root[data-theme="light"] .stack-tag,
+:root[data-theme="light"] .project-tag,
+:root[data-theme="light"] .pill,
+:root[data-theme="light"] .exp-tag,
+:root[data-theme="light"] .experience-period,
+:root[data-theme="light"] .proj-period-pro,
+:root[data-theme="light"] .toggle-btn{
+  background:rgba(10,20,40,0.03);
+}
+
+/* Le survol du .pill doit reprendre la main sur le fond clair ci-dessus,
+   sinon le texte blanc du hover devient invisible sur fond quasi-blanc
+   (les autres badges ont un survol plus doux, sans ce conflit) */
+:root[data-theme="light"] .pill:hover{
+  background:var(--primary);
+  color:#fff;
+  border-color:var(--primary);
+}
+
+:root[data-theme="light"] .experience-dot,
+:root[data-theme="light"] .education-logo{
+  border-color:var(--line);
+}
+
+/* ---------- Titres en dégradé : vifs, pas noirs ---------- */
+:root[data-theme="light"] section h2.sectitle{
+  background:linear-gradient(120deg, var(--primary-deep) 15%, var(--primary-bright) 95%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+:root[data-theme="light"] .hero h1 .accent{
+  background:linear-gradient(100deg, var(--primary-bright), var(--teal-vivid));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+:root[data-theme="light"] .outro-title{
+  background:linear-gradient(160deg, var(--primary-deep) 20%, var(--primary-bright) 60%, var(--teal-vivid) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+:root[data-theme="light"] .outro-dot{
+  -webkit-text-fill-color:var(--primary-deep);
+  color:var(--primary-deep);
+}
+
+/* ============================================================
+   TOGGLES — langue & thème (dans la nav)
+   ============================================================ */
+.nav-toggles{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.toggle-btn{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--line);
+  color:var(--ink);
+  font-size:15px;font-weight:700;font-family:var(--mono);
+  cursor:pointer;
+  transition:border-color .2s ease,transform .2s ease,background .2s ease,color .2s ease;
+}
+.toggle-btn:hover{
+  border-color:var(--primary);
+  color:var(--primary-bright);
+  background:var(--primary-08);
+  transform:translateY(-1px);
+}
+.lang-toggle-btn{
+  font-size:12px;
+  letter-spacing:0.03em;
+}
+
+@media (max-width:860px){
+  .nav-toggles{
+    order:2;
+    gap:6px;
+  }
+  .toggle-btn{
+    width:36px;height:36px;
+    font-size:14px;
+  }
+  .lang-toggle-btn{
+    font-size:11.5px;
+  }
+}
+
+/* ---------- Téléphone : toggles plus compacts ---------- */
+@media (max-width:640px){
+  .nav-toggles{
+    gap:5px;
+  }
+  .toggle-btn{
+    width:32px;height:32px;
+    border-radius:8px;
+    font-size:13px;
+  }
+  .lang-toggle-btn{
+    font-size:11px;
+    letter-spacing:0.01em;
+  }
+}
+
+/* ---------- Très petits téléphones ---------- */
+@media (max-width:380px){
+  .toggle-btn{
+    width:30px;height:30px;
+    font-size:12px;
+  }
+}

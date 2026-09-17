@@ -1,3 +1,6 @@
+import { LanguageProvider } from './contexts/LanguageContext.jsx'
+import { ThemeProvider } from './contexts/ThemeContext.jsx'
+
 import Nav from './components/Nav.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
@@ -12,20 +15,22 @@ import Footer from './components/Footer.jsx'
 
 export default function App() {
   return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Education />
-        <Certifications />
-        <Projects />
-        <Contact />
-        <Outro />
-      </main>
-      <Footer />
-    </>
+    <ThemeProvider>
+      <LanguageProvider>
+        <Nav />
+        <main>
+          <Hero />
+          <About />
+          <Experience />
+          <Projects />
+          <Education />
+          <Certifications />
+          <Skills />
+          <Contact />
+          <Outro />
+        </main>
+        <Footer />
+      </LanguageProvider>
+    </ThemeProvider>
   )
 }

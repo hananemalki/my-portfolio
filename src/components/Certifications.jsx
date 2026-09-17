@@ -1,38 +1,31 @@
 import { certifications, languages } from '../data.js'
 import Reveal from './Reveal.jsx'
-
-const statusLabel = {
-  done: 'Obtenue',
-  wip: 'En cours',
-}
+import { useLanguage } from '../contexts/LanguageContext.jsx'
+import { strings } from '../strings.js'
 
 export default function Certifications() {
+  const { t } = useLanguage()
+
+  const statusLabel = {
+    done: t(strings.certifications.status.done),
+    wip: t(strings.certifications.status.wip),
+  }
+
   return (
     <section id="certifications" className="certifications">
       <div className="wrap">
 
         <Reveal>
-          <div className="eyebrow">Certifications</div>
-
-          <h2 className="sectitle">
-            Certifications &amp; langues
-          </h2>
-
-          <p className="section-intro">
-            Une veille continue sur le cloud, l’architecture logicielle
-            et l’IA générative, au-delà du parcours académique.
-          </p>
+          <div className="eyebrow">{t(strings.certifications.eyebrow)}</div>
+          <h2 className="sectitle">{t(strings.certifications.title)}</h2>
+          <p className="section-intro">{t(strings.certifications.intro)}</p>
         </Reveal>
 
         <div className="split" style={{ marginTop: '48px' }}>
 
           <Reveal className="cert-list">
             {certifications.map((cert) => (
-              <div
-                className="cert-card"
-                key={cert.name}
-                style={{ '--accent': cert.color }}
-              >
+              <div className="cert-card" key={cert.name} style={{ '--accent': cert.color }}>
                 <div className="cert-icon">
                   {cert.logo ? (
                     <img
@@ -40,9 +33,7 @@ export default function Certifications() {
                       alt=""
                       onError={(e) => {
                         e.currentTarget.replaceWith(
-                          Object.assign(document.createElement('span'), {
-                            textContent: cert.icon,
-                          })
+                          Object.assign(document.createElement('span'), { textContent: cert.icon })
                         )
                       }}
                     />
@@ -62,15 +53,15 @@ export default function Certifications() {
 
           <Reveal>
             <div className="flabel" style={{ marginBottom: '16px' }}>
-              Langues
+              {t(strings.certifications.languagesLabel)}
             </div>
 
             <div className="lang-row">
-              {languages.map((lang) => (
-                <div className="lang-item" key={lang.name}>
+              {languages.map((lang, i) => (
+                <div className="lang-item" key={i}>
                   <span className="lang-dot"></span>
                   <div>
-                    <div className="lname">{lang.name}</div>
+                    <div className="lname">{t(lang.name)}</div>
                     <div className="llevel">{lang.level}</div>
                   </div>
                 </div>

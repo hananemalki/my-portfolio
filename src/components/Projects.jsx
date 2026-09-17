@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import { professionalProjects, personalProjects } from '../data.js'
 import Reveal from './Reveal.jsx'
+import { useLanguage } from '../contexts/LanguageContext.jsx'
+import { strings } from '../strings.js'
 
 const PER_PAGE = 2
 
 export default function Projects() {
+  const { t } = useLanguage()
   const [page, setPage] = useState(0)
   const totalPages = Math.ceil(professionalProjects.length / PER_PAGE)
 
-  const current = professionalProjects.slice(
-    page * PER_PAGE,
-    page * PER_PAGE + PER_PAGE
-  )
+  const current = professionalProjects.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE)
 
   function goTo(next) {
     if (next < 0 || next >= totalPages) return
@@ -36,33 +36,24 @@ export default function Projects() {
       <div className="wrap">
 
         <Reveal>
-          <div className="eyebrow">Projets</div>
-          <h2 className="sectitle">Projets professionnels</h2>
-          <p className="section-intro">
-            Des projets menés en stage et en formation, de la conception
-            à l’architecture technique.
-          </p>
+          <div className="eyebrow">{t(strings.projects.eyebrow)}</div>
+          <h2 className="sectitle">{t(strings.projects.title)}</h2>
+          <p className="section-intro">{t(strings.projects.intro)}</p>
         </Reveal>
 
         <div className="proj-grid" key={page}>
           {current.map((project) => (
-            <Reveal
-              className="proj-card"
-              key={project.key}
-              style={{ '--accent': project.color }}
-            >
+            <Reveal className="proj-card" key={project.key} style={{ '--accent': project.color }}>
               <div className="proj-card-top">
-                <span className="proj-badge-pro">{project.badge}</span>
-                {project.period && (
-                  <span className="proj-period-pro">{project.period}</span>
-                )}
+                <span className="proj-badge-pro">{t(project.badge)}</span>
+                {project.period && <span className="proj-period-pro">{t(project.period)}</span>}
               </div>
 
               <div className="proj-body-pro">
-                <h3 className="proj-title">{project.title}</h3>
-                <p className="proj-desc">{project.desc}</p>
+                <h3 className="proj-title">{t(project.title)}</h3>
+                <p className="proj-desc">{t(project.desc)}</p>
 
-                <div className="project-tech-label">Technologies</div>
+                <div className="project-tech-label">{t(strings.projects.technologies)}</div>
                 <div className="project-tags">
                   {project.tags.map((tag) => (
                     <span className="project-tag" key={tag}>
@@ -81,7 +72,7 @@ export default function Projects() {
               className="proj-nav-btn"
               onClick={() => goTo(page - 1)}
               disabled={page === 0}
-              aria-label="Projets précédents"
+              aria-label={t(strings.projects.prevProjects)}
             >
               ←
             </button>
@@ -101,7 +92,7 @@ export default function Projects() {
               className="proj-nav-btn"
               onClick={() => goTo(page + 1)}
               disabled={page === totalPages - 1}
-              aria-label="Projets suivants"
+              aria-label={t(strings.projects.nextProjects)}
             >
               →
             </button>
@@ -109,33 +100,24 @@ export default function Projects() {
         )}
 
         <Reveal className="personal-projects-head">
-          <div className="eyebrow">Projets personnels</div>
-          <h2 className="sectitle">Projets personnels</h2>
-          <p className="section-intro">
-            Des projets réalisés en dehors des stages, à la faculté ou
-            en autonomie.
-          </p>
+          <div className="eyebrow">{t(strings.projects.personalEyebrow)}</div>
+          <h2 className="sectitle">{t(strings.projects.personalTitle)}</h2>
+          <p className="section-intro">{t(strings.projects.personalIntro)}</p>
         </Reveal>
 
         <div className="proj-grid" key={`personal-${personalPage}`}>
           {currentPersonal.map((project) => (
-            <Reveal
-              className="proj-card"
-              key={project.key}
-              style={{ '--accent': project.color }}
-            >
+            <Reveal className="proj-card" key={project.key} style={{ '--accent': project.color }}>
               <div className="proj-card-top">
-                <span className="proj-badge-pro">{project.badge}</span>
-                {project.period && (
-                  <span className="proj-period-pro">{project.period}</span>
-                )}
+                <span className="proj-badge-pro">{t(project.badge)}</span>
+                {project.period && <span className="proj-period-pro">{t(project.period)}</span>}
               </div>
 
               <div className="proj-body-pro">
-                <h3 className="proj-title">{project.title}</h3>
-                <p className="proj-desc">{project.desc}</p>
+                <h3 className="proj-title">{t(project.title)}</h3>
+                <p className="proj-desc">{t(project.desc)}</p>
 
-                <div className="project-tech-label">Technologies</div>
+                <div className="project-tech-label">{t(strings.projects.technologies)}</div>
                 <div className="project-tags">
                   {project.tags.map((tag) => (
                     <span className="project-tag" key={tag}>
@@ -154,7 +136,7 @@ export default function Projects() {
               className="proj-nav-btn"
               onClick={() => goToPersonal(personalPage - 1)}
               disabled={personalPage === 0}
-              aria-label="Projets personnels précédents"
+              aria-label={t(strings.projects.prevPersonal)}
             >
               ←
             </button>
@@ -174,7 +156,7 @@ export default function Projects() {
               className="proj-nav-btn"
               onClick={() => goToPersonal(personalPage + 1)}
               disabled={personalPage === personalTotalPages - 1}
-              aria-label="Projets personnels suivants"
+              aria-label={t(strings.projects.nextPersonal)}
             >
               →
             </button>

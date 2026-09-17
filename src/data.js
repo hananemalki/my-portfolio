@@ -24,10 +24,10 @@ export const quickFacts = [
 export const navItems = [
   { id: 'about', label: 'À propos' },
   { id: 'experience', label: 'Expérience' },
-  { id: 'skills', label: 'Compétences' },
+  { id: 'projects', label: 'Projets' },
   { id: 'education', label: 'Formation' },
   { id: 'certifications', label: 'Certifications' },
-  { id: 'projects', label: 'Projets' },
+  { id: 'skills', label: 'Compétences' },
   { id: 'contact', label: 'Contact' },
 ]
 

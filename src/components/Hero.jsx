@@ -1,23 +1,32 @@
-import { profile, quickFacts } from '../data.js'
+import { profile } from '../data.js'
 import Reveal from './Reveal.jsx'
 import Magnetic from './Magnetic.jsx'
+import { useLanguage } from '../contexts/LanguageContext.jsx'
+import { strings } from '../strings.js'
 
 export default function Hero() {
+  const { lang, t } = useLanguage()
+  const cvFile = lang === 'en' && profile.cvFileEn ? profile.cvFileEn : profile.cvFile
+  const specialty = lang === 'fr' ? strings.hero.specialtyFr : strings.hero.specialtyEn
+
   return (
     <section className="hero" id="top">
       <div className="hero-blob" aria-hidden="true"></div>
       <div className="hero-watermark" aria-hidden="true">{'</>'}</div>
       <div className="wrap">
         <Reveal>
-          <div className="hero-kicker">{'<developer specialty='}<span>"Java & IA Générative"</span>{'>'}</div>          <h1>
+          <div className="hero-kicker">
+            {'<developer specialty='}<span>"{specialty}"</span>{'>'}
+          </div>
+          <h1>
             Malki <span className="accent">Hanane</span>
           </h1>
-          <div className="role">{profile.role}</div>
-          <p className="pitch">{profile.pitch}</p>
-          
+          <div className="role">{t(profile.role)}</div>
+          <p className="pitch">{t(profile.pitch)}</p>
+
           <div className="cta-row">
-            <Magnetic className="btn btn-primary" href={profile.cvFile} download>
-              Télécharger mon CV ↓
+            <Magnetic className="btn btn-primary" href={cvFile} download>
+              {t(strings.hero.downloadCv)}
             </Magnetic>
             <Magnetic
               className="btn btn-ghost"
@@ -27,7 +36,7 @@ export default function Hero() {
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
               }}
             >
-              Me contacter
+              {t(strings.hero.contactMe)}
             </Magnetic>
           </div>
           <div className="social-row">
@@ -37,33 +46,9 @@ export default function Hero() {
             <a href={profile.github} target="_blank" rel="noopener noreferrer">
               GitHub ↗
             </a>
-            <a href={`mailto:${profile.email}`}>Email ↗</a>
+            <a href={`mailto:${profile.email}`}>{t(strings.hero.email)}</a>
           </div>
         </Reveal>
-
-        {/* <Reveal>
-          <div className="facts-card">
-            <div className="flabel">Aperçu rapide</div>
-            <div className="facts-grid">
-              {quickFacts.map((fact) => (
-                <div className="fact" key={fact.label}>
-                  <div className="num">{fact.num}</div>
-                  <div className="label">{fact.label}</div>
-                </div>
-              ))}
-              <div className="fact">
-                <div className="num">RAG</div>
-                <div className="label">spécialité actuelle</div>
-              </div>
-            </div>
-            <div className="current">
-              <span className="status-dot"></span>
-              <span className="current-text">
-                En mission chez <b>Capgemini</b> jusqu'en août 2026
-              </span>
-            </div>
-          </div>
-        </Reveal> */}
       </div>
     </section>
   )

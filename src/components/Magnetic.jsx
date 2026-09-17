@@ -14,12 +14,16 @@ export default function Magnetic({ children, className = '', as: Tag = 'a', ...p
   const isTouch =
     typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches
 
+  const MAX_OFFSET = 8 // px — déplacement maximum autorisé, pour éviter l'effet de saut
+
   const handleMove = (e) => {
     if (prefersReduced || isTouch || !ref.current) return
     const rect = ref.current.getBoundingClientRect()
     const x = e.clientX - rect.left - rect.width / 2
     const y = e.clientY - rect.top - rect.height / 2
-    ref.current.style.transform = `translate(${x * 0.22}px, ${y * 0.32}px)`
+    const offsetX = Math.max(-MAX_OFFSET, Math.min(MAX_OFFSET, x * 0.12))
+    const offsetY = Math.max(-MAX_OFFSET, Math.min(MAX_OFFSET, y * 0.12))
+    ref.current.style.transform = `translate(${offsetX}px, ${offsetY}px)`
   }
 
   const handleLeave = () => {
