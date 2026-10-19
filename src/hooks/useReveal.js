@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-/**
- * Returns a ref to attach to an element and a boolean that flips to true
- * once the element has scrolled into view. Respects prefers-reduced-motion.
- */
+
 export function useReveal(threshold = 0.12) {
   const ref = useRef(null)
   const [visible, setVisible] = useState(false)

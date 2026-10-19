@@ -1,10 +1,5 @@
 import { useRef } from 'react'
 
-/**
- * Wraps any anchor/button children and gives them a subtle "magnetic"
- * pull toward the cursor on hover. Skips the effect entirely if the
- * user prefers reduced motion, or on touch devices (no real hover).
- */
 export default function Magnetic({ children, className = '', as: Tag = 'a', ...props }) {
   const ref = useRef(null)
 
@@ -14,7 +9,7 @@ export default function Magnetic({ children, className = '', as: Tag = 'a', ...p
   const isTouch =
     typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches
 
-  const MAX_OFFSET = 8 // px — déplacement maximum autorisé, pour éviter l'effet de saut
+  const MAX_OFFSET = 8 
 
   const handleMove = (e) => {
     if (prefersReduced || isTouch || !ref.current) return
