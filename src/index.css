@@ -1,10 +1,5 @@
-/* ============================================================
-   Portfolio — Hanane Malki
-   Thème sombre, un seul accent fort (violet électrique)
-   ============================================================ */
 
 :root{
-  /* --- Fond & surfaces --- */
   --bg:#07080f;
   --bg-elev:#0b0d18;
   --surface:#10131f;
@@ -12,14 +7,11 @@
   --line:#242a45;
   --line-soft:#1b2038;
 
-  /* --- Texte --- */
   --ink:#e9ecf7;
   --ink-dim:#b9c0d6;
   --muted:#7e87a3;
 
-  /* --- Accent unique ---
-     Pour changer toute l'identité du site, remplace ces 6 lignes
-     par un des blocs proposés en bas de ce fichier (§ PALETTES). */
+
   --primary:#2d9cff;
   --primary-bright:#63b8ff;
   --primary-deep:#0a5dc2;
@@ -27,7 +19,6 @@
   --primary-14:rgba(45,156,255,0.14);
   --primary-30:rgba(45,156,255,0.30);
 
-  /* fallback : les composants injectent parfois --accent en inline */
   --accent:var(--primary);
 
   --signal:#3ddc97;
@@ -55,7 +46,6 @@ body{
   overflow-x:hidden;
 }
 
-/* Halo de fond global, très discret */
 body::before{
   content:"";
   position:fixed;
@@ -130,9 +120,6 @@ section h2.sectitle{
   html{scroll-behavior:auto;}
 }
 
-/* ============================================================
-   NAV
-   ============================================================ */
 header{
   position:sticky;top:0;z-index:60;
   background:rgba(7,8,15,0.72);
@@ -186,9 +173,6 @@ header{
 .navlinks-desktop{display:flex;}
 @media (max-width:860px){ .navlinks-desktop{display:none;} }
 
-/* ============================================================
-   HERO
-   ============================================================ */
 .hero{padding:104px 0 84px;overflow:hidden;}
 .hero .wrap{position:relative;z-index:2;}
 
@@ -288,7 +272,6 @@ header{
 }
 .social-row a:hover{color:var(--primary-bright);border-color:var(--primary-bright);}
 
-/* ---------- Carte "aperçu rapide" ---------- */
 .facts-card{
   background:var(--surface);
   border:1px solid var(--line);
@@ -415,7 +398,6 @@ header{
 }
 .experience-card:last-child{padding-bottom:0;}
 
-/* la ligne verticale */
 .experience-line{position:relative;display:flex;justify-content:center;}
 .experience-line::after{
   content:"";
@@ -708,9 +690,7 @@ header{
 /* ============================================================
    PROJETS
    ============================================================ */
-/* ============================================================
-   PROJETS — grille transparente + pagination
-   ============================================================ */
+
 .proj-grid{
   display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:52px;
   min-height:280px;
@@ -800,7 +780,6 @@ header{
   box-shadow:0 0 0 3px var(--primary-14);
 }
 
-/* Retire "project-tag" de cette règle partagée */
 .tech-badge,.stack-tag{
   font-family:var(--mono);font-size:11.5px;
   color:var(--ink-dim);
@@ -928,58 +907,6 @@ footer{padding:0;}
 ::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;border:2px solid var(--bg);}
 ::-webkit-scrollbar-thumb:hover{background:var(--primary-deep);}
 
-/* ============================================================
-   § PALETTES — variantes d'accent
-   Copie un bloc et colle-le dans :root à la place des 6 lignes
-   --primary* pour changer l'accent de tout le site.
-   ============================================================ */
-
-/* --- Azure (actuel) ---
-  --primary:#2d9cff;
-  --primary-bright:#63b8ff;
-  --primary-deep:#0a5dc2;
-  --primary-08:rgba(45,156,255,0.08);
-  --primary-14:rgba(45,156,255,0.14);
-  --primary-30:rgba(45,156,255,0.30);
-*/
-
-/* --- Émeraude / terminal ---
-  --primary:#10b981;
-  --primary-bright:#42d9a5;
-  --primary-deep:#047857;
-  --primary-08:rgba(16,185,129,0.08);
-  --primary-14:rgba(16,185,129,0.14);
-  --primary-30:rgba(16,185,129,0.30);
-*/
-
-/* --- Cyan glacé ---
-  --primary:#22d3ee;
-  --primary-bright:#67e8f9;
-  --primary-deep:#0e7490;
-  --primary-08:rgba(34,211,238,0.08);
-  --primary-14:rgba(34,211,238,0.14);
-  --primary-30:rgba(34,211,238,0.30);
-*/
-
-/* --- Ambre / cuivre ---
-  --primary:#f59e0b;
-  --primary-bright:#fbbf24;
-  --primary-deep:#b45309;
-  --primary-08:rgba(245,158,11,0.08);
-  --primary-14:rgba(245,158,11,0.14);
-  --primary-30:rgba(245,158,11,0.30);
-*/
-
-/* --- Corail ---
-  --primary:#f43f5e;
-  --primary-bright:#fb7185;
-  --primary-deep:#9f1239;
-  --primary-08:rgba(244,63,94,0.08);
-  --primary-14:rgba(244,63,94,0.14);
-  --primary-30:rgba(244,63,94,0.30);
-*/
-
-/* ---------- Point de timeline coloré par entreprise ---------- */
 .experience-dot.active{
   border-color:var(--accent, var(--primary));
   box-shadow:0 0 0 4px color-mix(in srgb, var(--accent, var(--primary)) 14%, transparent),
@@ -995,7 +922,6 @@ footer{padding:0;}
   box-shadow:0 26px 50px -36px var(--accent, var(--primary));
 }
 
-/* ---------- Badge entreprise avec accent ---------- */
 .badge-pro{
   font-family:var(--mono);font-size:10.5px;
   color:var(--accent, var(--primary-bright));
@@ -1005,7 +931,6 @@ footer{padding:0;}
   text-transform:uppercase;
 }
 
-/* ---------- Indicateur "En cours" ---------- */
 .current-flag{
   display:inline-flex;align-items:center;gap:6px;
   font-family:var(--mono);font-size:10.5px;color:var(--signal);
@@ -1026,7 +951,6 @@ footer{padding:0;}
   .current-dot{animation:none;}
 }
 
-/* ---------- Bouton "voir plus" missions ---------- */
 .tasks-toggle{
   margin-top:10px;
   font-family:var(--mono);font-size:12px;font-weight:600;
@@ -1037,7 +961,6 @@ footer{padding:0;}
 }
 .tasks-toggle:hover{opacity:.75;}
 
-/* ---------- Tags technos avec accent (comme les projets) ---------- */
 .exp-tag{
   display:inline-flex;align-items:center;gap:7px;
   font-family:var(--mono);font-size:11.5px;font-weight:500;
